@@ -1,0 +1,94 @@
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\appsettings.json
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\StartApi.exe
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\StartApi.deps.json
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\StartApi.runtimeconfig.json
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\StartApi.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\StartApi.pdb
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.csproj.AssemblyReference.cache
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.AssemblyInfoInputs.cache
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.AssemblyInfo.cs
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.csproj.CoreCompileInputs.cache
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets\msbuild.StartApi.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets\msbuild.build.StartApi.props
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.StartApi.props
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.StartApi.props
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\scopedcss\bundle\StartApi.styles.css
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.csproj.Up2Date
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\refint\StartApi.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.pdb
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.genruntimeconfig.cache
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\ref\StartApi.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\StartApi.staticwebassets.endpoints.json
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets\msbuild.StartApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\itextsharp.dll
+C:\Users\theop\OneDrive\Área de Trabalho\Explorer\Code\REPOS\Projects\RAG_jackes\StartApi\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\appsettings.json
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\StartApi.staticwebassets.endpoints.json
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\StartApi.exe
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\StartApi.deps.json
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\StartApi.runtimeconfig.json
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\StartApi.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\StartApi.pdb
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\itextsharp.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.csproj.AssemblyReference.cache
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.AssemblyInfoInputs.cache
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.AssemblyInfo.cs
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.csproj.CoreCompileInputs.cache
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\scopedcss\bundle\StartApi.styles.css
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets\msbuild.StartApi.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets\msbuild.StartApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets\msbuild.build.StartApi.props
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.StartApi.props
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.StartApi.props
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.csproj.Up2Date
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\refint\StartApi.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.pdb
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.genruntimeconfig.cache
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\ref\StartApi.dll
