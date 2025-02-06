@@ -13,7 +13,7 @@ namespace StartApi.Services;
   string text = pdfExtractorService.ExtractTextFromPdf(pdfPath);
 
   // 2. Preprocess text into chunks
-  List<string> chunks = proprocessTextService.PreprocessText(text);
+  List<string> chunks = proprocessTextService.TextSplit(text);
 
   // 3. Initialize OpenAI client
   string apiKey = "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";

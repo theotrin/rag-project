@@ -2,7 +2,7 @@
 namespace StartApi.Services;
     public class ProprocessTextService
     {
-        public List<string> PreprocessText(string text, int maxChunkSize = 500) {
+        public List<string> TextSplit(string text, int maxChunkSize = 500) {
         // Split text into chunks (e.g., paragraphs or sentences)
         List<string> chunks = new List<string>();
         for (int i = 0; i < text.Length; i += maxChunkSize) {

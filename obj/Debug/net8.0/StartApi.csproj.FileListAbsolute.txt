@@ -92,3 +92,4 @@ C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\refi
 C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.pdb
 C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.genruntimeconfig.cache
 C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\ref\StartApi.dll
+C:\Users\theop\OneDrive\Documentos\RAG\RAG_jackes\StartApi\obj\Debug\net8.0\StartApi.sourcelink.json
