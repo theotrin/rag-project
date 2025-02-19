@@ -1,0 +1,22 @@
+services:
+  init-data:
+    image: busybox
+    command: chmod -R 777 /data
+    volumes:
+      - surrealdb-data:/data
+
+  surrealdb:
+    image: surrealdb/surrealdb:latest
+    container_name: surrealdb-dev
+    ports:
+      - "8000:8000"
+    command: start --log trace --user root --pass root file:/data/storage.db
+    restart: no
+    volumes:
+      - surrealdb-data:/data
+    depends_on:
+      init-data:
+        condition: service_completed_successfully
+
+volumes:
+  surrealdb-data:
