@@ -29,7 +29,7 @@ class SurrealService
         };
 
         // Endpoint para inserir (substitua "pessoas" pelo nome da sua tabela)
-        string tableName = "pessoas";
+        string tableName = "test";
         string url = $"{baseUrl}/sql";
 
         // Query SQL para INSERT
