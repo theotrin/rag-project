@@ -18,7 +18,7 @@ class SurrealService
         string token = "your_auth_token"; // Token de autenticação, se necessário
 
         // Autenticar (se necessário)
-        await Authenticate(client, baseUrl, namespaceName, database, token);
+        Authenticate(client, baseUrl, namespaceName, database, token);
 
         // Dados a serem inseridos (exemplo: uma pessoa)
         var data = new
@@ -41,7 +41,7 @@ class SurrealService
         Console.WriteLine("Dados inseridos com sucesso: " + response);
     }
 
-    static async Task Authenticate(HttpClient client, string baseUrl, string namespaceName, string database, string token)
+    static void Authenticate(HttpClient client, string baseUrl, string namespaceName, string database, string token)
     {
         // Configurar cabeçalhos para autenticação
         client.DefaultRequestHeaders.Add("NS", namespaceName);
@@ -92,8 +92,6 @@ class SurrealService
         {
             user = username,
             pass = password,
-            NS = namespaceName,
-            DB = database
         };
 
         // Serializar para JSON
@@ -104,6 +102,7 @@ class SurrealService
         {
             // Enviar requisição POST
             HttpResponseMessage response = await client.PostAsync(url, content);
+            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
             if (response.IsSuccessStatusCode)
             {
@@ -112,7 +111,7 @@ class SurrealService
                 JObject jsonResponse = JObject.Parse(responseBody);
 
                 // Extrair o token (pode estar em um campo como "token" ou "jwt")
-                string token = jsonResponse["token"]?.ToString();
+                string? token = jsonResponse["token"]?.ToString();
 
                 if (string.IsNullOrEmpty(token))
                 {
