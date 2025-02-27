@@ -21,7 +21,7 @@ public string ExtractTextFromPdf(IFormFile file)
             {
                 text.Append(PdfTextExtractor.GetTextFromPage(reader, i));
             }
-            System.Console.WriteLine(text.ToString());
+            //  Console.WriteLine(text.ToString());
             return text.ToString();
         }
     }
