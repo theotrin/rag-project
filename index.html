@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingestão de PDF</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f2f5;
+      }
+      .container {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 400px;
+      }
+      h1 {
+        color: #333;
+        margin-bottom: 1.5rem;
+      }
+      input[type="file"] {
+        display: block;
+        margin: 1rem auto;
+      }
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      #result {
+        margin-top: 1rem;
+        color: #555;
+        word-wrap: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Upload de PDF</h1>
+      <input type="file" id="pdfFile" accept=".pdf" />
+      <button onclick="uploadPdf()">Enviar</button>
+      <div id="result"></div>
+    </div>
+
+    <script>
+      async function uploadPdf() {
+        const fileInput = document.getElementById("pdfFile");
+        const resultDiv = document.getElementById("result");
+        const file = fileInput.files[0];
+
+        if (!file) {
+          resultDiv.innerText = "Por favor, selecione um arquivo PDF.";
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        try {
+          resultDiv.innerText = "Enviando...";
+          const response = await fetch("http://localhost:5190/Pdf/PostPdf", {
+            method: "POST",
+            body: formData,
+          });
+
+          const data = await response.json();
+          if (response.ok) {
+            resultDiv.innerText = `PDF processado com sucesso.`;
+          } else {
+            resultDiv.innerText = data.detail || "Erro ao processar o PDF.";
+          }
+        } catch (error) {
+          resultDiv.innerText = `Erro: ${error.message}`;
+        }
+      }
+    </script>
+  </body>
+</html>
