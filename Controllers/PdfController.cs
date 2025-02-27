@@ -13,11 +13,13 @@ namespace ragproject.Controllers
     public class PdfController : Controller
     {
     private readonly PdfTextExtractorService _pdfTextExtractorService;
+    private readonly ProprocessTextService _proprocessTextService;
 
-    public PdfController(PdfTextExtractorService pdfTextExtractorService)
-    {
-        _pdfTextExtractorService = pdfTextExtractorService;
-    }
+        public PdfController(PdfTextExtractorService pdfTextExtractorService, ProprocessTextService proprocessTextService)
+        {
+            _pdfTextExtractorService = pdfTextExtractorService;
+            _proprocessTextService = proprocessTextService;
+        }
 
         [HttpGet("GetPdf")]
         public IActionResult GetPdf()
@@ -25,23 +27,32 @@ namespace ragproject.Controllers
             return Ok("Pdf data");
         }
 
-        [HttpPost("PostPdf")]
-        public async Task<IActionResult> IngestPdf(IFormFile file)
+    [HttpPost("ingest-pdf")]
+    public IActionResult IngestPdf(IFormFile file, [FromQuery] string? label = null)
+    {
+        try
         {
-            try
-            {
-                var extractedText = _pdfTextExtractorService.ExtractTextFromPdf(file);
-                return Ok(new { message = "Texto extraído com sucesso!", extractedText });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Erro ao processar o PDF: {ex.Message}");
-        }
-        }
+            // Passo 1: Extrair o texto do PDF
+            var extractedText = _pdfTextExtractorService.ExtractTextFromPdf(file);
 
+            // Passo 2: Dividir em chunks e adicionar a label (se fornecida)
+            var chunks = _proprocessTextService.TextSplit(extractedText, label);
+
+            return Ok(new
+            {
+                message = "PDF ingerido e dividido em chunks com sucesso!",
+                chunksCount = chunks.Count,
+                chunks
+            });
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro ao processar o PDF: {ex.Message}");
+        }
     }
+}
 }
