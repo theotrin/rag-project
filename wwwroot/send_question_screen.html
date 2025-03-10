@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ingestão de PDF</title>
+    <title>Ingestão de PDF e Perguntas</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -26,10 +26,11 @@
         color: #333;
         margin-bottom: 1.5rem;
       }
-      input[type="file"],
-      input[type="text"] {
+      input,
+      textarea {
         display: block;
         margin: 1rem auto;
+        width: 80%;
       }
       button {
         background-color: #007bff;
@@ -52,41 +53,51 @@
   </head>
   <body>
     <div class="container">
-      <h1>Upload de PDF</h1>
-      <input type="file" id="pdfFile" accept=".pdf" />
-      <input type="text" id="label" placeholder="Digite a label (opcional)" />
-      <button onclick="uploadPdf()">Enviar</button>
+      <h1>Fazer uma Pergunta</h1>
+      <textarea id="question" placeholder="Digite sua pergunta"></textarea>
+      <input
+        type="text"
+        id="productLabel"
+        placeholder="Digite o product label"
+      />
+      <button onclick="askQuestion()">Enviar Pergunta</button>
       <div id="result"></div>
     </div>
 
     <script>
-      async function uploadPdf() {
-        const fileInput = document.getElementById("pdfFile");
-        const labelInput = document.getElementById("label");
+      async function askQuestion() {
+        const questionInput = document.getElementById("question");
+        const labelInput = document.getElementById("productLabel");
         const resultDiv = document.getElementById("result");
-        const file = fileInput.files[0];
-        const label = labelInput.value;
+        const question = questionInput.value;
+        const productLabel = labelInput.value;
 
-        if (!file) {
-          resultDiv.innerText = "Por favor, selecione um arquivo PDF.";
+        if (!question) {
+          resultDiv.innerText = "Por favor, insira uma pergunta.";
+          return;
+        }
+        if (!productLabel) {
+          resultDiv.innerText = "Por favor, insira o product label.";
           return;
         }
 
-        const formData = new FormData();
-        formData.append("file", file);
-
-        // URL completa do backend
-        const baseUrl = "http://localhost:5190"; // Ajuste a porta se necessário
-        const url = label
-          ? `${baseUrl}/Pdf/ingest-pdf?label=${encodeURIComponent(label)}`
-          : `${baseUrl}/Pdf/ingest-pdf`;
+        const body = {
+          question: question,
+          productLabel: productLabel,
+        };
 
         try {
           resultDiv.innerText = "Enviando...";
-          const response = await fetch(url, {
-            method: "POST",
-            body: formData,
-          });
+          const response = await fetch(
+            "http://localhost:5190/Pdf/ask-question",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(body),
+            }
+          );
 
           if (!response.ok) {
             const errorText = await response.text();
@@ -98,9 +109,7 @@
           }
 
           const data = await response.json();
-          resultDiv.innerText = `${data.message}\n\nNúmero de chunks: ${
-            data.chunksCount
-          }\n\nPrimeiro chunk: ${data.chunks[0].substring(0, 200)}...`;
+          resultDiv.innerText = `${data.message}\nResposta: ${data.response}`;
         } catch (error) {
           resultDiv.innerText = `Erro: ${error.message}`;
           console.error("Detalhes do erro:", error);
