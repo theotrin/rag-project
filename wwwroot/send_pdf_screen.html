@@ -1,108 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingestão de PDF e Perguntas</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingestão de PDF</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f2f5;
-        }
-        .container {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 400px;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 1.5rem;
-        }
-        input, textarea {
-            display: block;
-            margin: 1rem auto;
-            width: 80%;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        #result {
-            margin-top: 1rem;
-            color: #555;
-            word-wrap: break-word;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f2f5;
+      }
+      .container {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 400px;
+      }
+      h1 {
+        color: #333;
+        margin-bottom: 1.5rem;
+      }
+      input[type="file"],
+      input[type="text"] {
+        display: block;
+        margin: 1rem auto;
+      }
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      #result {
+        margin-top: 1rem;
+        color: #555;
+        word-wrap: break-word;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Fazer uma Pergunta</h1>
-        <textarea id="question" placeholder="Digite sua pergunta"></textarea>
-        <input type="text" id="productLabel" placeholder="Digite o product label">
-        <button onclick="askQuestion()">Enviar Pergunta</button>
-        <div id="result"></div>
+      <h1>Upload de PDF</h1>
+      <input type="file" id="pdfFile" accept=".pdf" />
+      <input type="text" id="label" placeholder="Digite a label (opcional)" />
+      <button onclick="uploadPdf()">Enviar</button>
+      <div id="result"></div>
     </div>
 
     <script>
-        async function askQuestion() {
-            const questionInput = document.getElementById('question');
-            const labelInput = document.getElementById('productLabel');
-            const resultDiv = document.getElementById('result');
-            const question = questionInput.value;
-            const productLabel = labelInput.value;
+      async function uploadPdf() {
+        const fileInput = document.getElementById("pdfFile");
+        const labelInput = document.getElementById("label");
+        const resultDiv = document.getElementById("result");
+        const file = fileInput.files[0];
+        const label = labelInput.value;
 
-            if (!question) {
-                resultDiv.innerText = "Por favor, insira uma pergunta.";
-                return;
-            }
-            if (!productLabel) {
-                resultDiv.innerText = "Por favor, insira o product label.";
-                return;
-            }
-
-            const body = {
-                question: question,
-                productLabel: productLabel
-            };
-
-            try {
-                resultDiv.innerText = "Enviando...";
-                const response = await fetch('http://localhost:5190/api/pdf/ask-question', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(body)
-                });
-
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error(`Erro ${response.status}: ${errorText || 'Sem detalhes disponíveis'}`);
-                }
-
-                const data = await response.json();
-                resultDiv.innerText = `${data.message}\nResposta: ${data.response}`;
-            } catch (error) {
-                resultDiv.innerText = `Erro: ${error.message}`;
-                console.error('Detalhes do erro:', error);
-            }
+        if (!file) {
+          resultDiv.innerText = "Por favor, selecione um arquivo PDF.";
+          return;
         }
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        // URL completa do backend
+        const baseUrl = "http://localhost:5190"; // Ajuste a porta se necessário
+        const url = label
+          ? `${baseUrl}/Pdf/ingest-pdf?label=${encodeURIComponent(label)}`
+          : `${baseUrl}/Pdf/ingest-pdf`;
+
+        try {
+          resultDiv.innerText = "Enviando...";
+          const response = await fetch(url, {
+            method: "POST",
+            body: formData,
+          });
+
+          if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(
+              `Erro ${response.status}: ${
+                errorText || "Sem detalhes disponíveis"
+              }`
+            );
+          }
+
+          const data = await response.json();
+          resultDiv.innerText = `${data.message}\n\nNúmero de chunks: ${
+            data.chunksCount
+          }\n\nPrimeiro chunk: ${data.chunks[0].substring(0, 200)}...`;
+        } catch (error) {
+          resultDiv.innerText = `Erro: ${error.message}`;
+          console.error("Detalhes do erro:", error);
+        }
+      }
     </script>
-</body>
+  </body>
 </html>
