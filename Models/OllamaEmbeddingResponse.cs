@@ -6,5 +6,6 @@ namespace StartApi.Models
     {
         [JsonPropertyName("embedding")]
         public List<float> Embedding { get; set; }
+        public string Model { get; set; }
     }
 }
