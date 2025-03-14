@@ -19,6 +19,7 @@ builder.Services.AddScoped<ProprocessTextService>();
 builder.Services.AddScoped<QuestionProcessingService>(); // Certifique-se de que existe
 // Registra os serviços como scoped
 builder.Services.AddScoped<PdfTextExtractorService>();
+builder.Services.AddScoped<EmbeddingService>();
 builder.Services.AddScoped<ProprocessTextService>();
 
 
