@@ -82,7 +82,7 @@ public class PdfController : Controller
     {
         try
         {
-            var response = _questionProcessingService.ProcessQuestion(request.Question, request.ProductLabel);
+            var response = _questionProcessingService.ProcessQuestionAsync(request.Question, request.ProductLabel);
             return Ok(new
             {
                 message = "Pergunta processada com sucesso!",
