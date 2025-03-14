@@ -1,7 +1,10 @@
 using System.Text.Json.Serialization;
 
-public class OllamaEmbeddingResponse
+namespace StartApi.Models
 {
-    [JsonPropertyName("embedding")]
-    public List<float> Embedding { get; set; } = new List<float>();
+    public class OllamaEmbeddingResponse
+    {
+        [JsonPropertyName("embedding")]
+        public List<float> Embedding { get; set; }
+    }
 }
