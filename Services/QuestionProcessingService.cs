@@ -84,7 +84,11 @@ namespace StartApi.Services
     // Monta a consulta SQL
     string sqlQuery = $@"
         LET $question = {embeddingString};
-        SELECT sample, content, vector::similarity::cosine(embedding, $question) AS dist FROM test WHERE embedding <|3|> $question;";
+        SELECT content, vector::similarity::cosine(embedding, $question) AS dist 
+        FROM test 
+        WHERE label = '{productLabel}' AND embedding <|3|> $question 
+        ORDER BY dist DESC 
+        LIMIT 5;";
     Console.WriteLine($"Consulta SQL: {sqlQuery}");
 
     // Envia a requisição ao SurrealDB
