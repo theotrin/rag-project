@@ -1,34 +1,64 @@
-namespace StartApi.Services
+namespace StartApi.Services;
+
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+using StartApi.Models;
+
+public class EmbeddingService
 {
-    using System.Net.Http.Json;
-    using System.Text.Json;
-    using StartApi.Models;
+    private readonly HttpClient _httpClient;
 
-    public class EmbeddingService
+    public EmbeddingService(IHttpClientFactory httpClientFactory)
     {
-        public async Task<List<float>> GenerateEmbeddingAsync(string prompt)
+        _httpClient = httpClientFactory.CreateClient("EmbeddingClient") ?? throw new ArgumentNullException(nameof(httpClientFactory));
+    }
+
+    public async Task<float[]> GenerateEmbeddingAsync(string text)
+    {
+        var requestBody = new
         {
-            using var httpClient = new HttpClient();
-            var request = new OllamaEmbeddingRequest
-            {
-                Model = "nomic-embed-text",
-                Prompt = prompt
-            };
+            model = "nomic-embed-text",
+            input = text
+        };
 
-            var response = await httpClient.PostAsJsonAsync(
-                "http://localhost:11434/api/embeddings",
-                request
-            );
+        var content = new StringContent(JsonSerializer.Serialize(requestBody), Encoding.UTF8, "application/json");
+        var response = await _httpClient.PostAsync("api/embed", content);
 
-            if (!response.IsSuccessStatusCode)
+        if (!response.IsSuccessStatusCode)
+        {
+            var error = await response.Content.ReadAsStringAsync();
+            throw new Exception($"Erro ao gerar embedding: {error}");
+        }
+
+        var responseBody = await response.Content.ReadAsStringAsync();
+        Console.WriteLine($"Resposta da API de embeddings: {responseBody}");
+
+        try
+        {
+            // Classe temporária para deserializar a resposta real da API
+            var apiResponse = JsonSerializer.Deserialize<ApiEmbeddingResponse>(responseBody, new JsonSerializerOptions
             {
-                throw new HttpRequestException($"Failed with status code: {response.StatusCode}");
+                PropertyNameCaseInsensitive = true
+            });
+
+            if (apiResponse == null || apiResponse.Embeddings == null || apiResponse.Embeddings.Length == 0 || apiResponse.Embeddings[0] == null)
+            {
+                throw new Exception("Resposta da API de embeddings é inválida ou vazia.");
             }
 
-            var responseContent = await response.Content.ReadFromJsonAsync<OllamaEmbeddingResponse>();
-            
-            // Verifica se há embeddings e retorna o primeiro array, ou uma lista vazia se não houver
-            return responseContent?.Embedding ?? new List<float>();
+            return apiResponse.Embeddings[0]; // Retorna o primeiro array de embeddings
         }
+        catch (JsonException ex)
+        {
+            throw new Exception($"Erro ao deserializar a resposta da API de embeddings: {ex.Message}. Resposta: {responseBody}");
+        }
+    }
+
+    // Classe temporária para corresponder à resposta da API
+    private class ApiEmbeddingResponse
+    {
+        public string Model { get; set; }
+        public float[][] Embeddings { get; set; }
     }
 }
