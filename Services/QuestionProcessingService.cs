@@ -41,8 +41,7 @@ namespace StartApi.Services
 
             // Monta o prompt para o Ollama
             string prompt = $@"
-Você é um assistente de IA encarregado de responder perguntas com base no contexto fornecido.
-Use o seguinte contexto para responder à pergunta. Se o contexto for insuficiente, diga e forneça uma resposta geral.
+Como assistente de IA, sua tarefa é responder à seguinte pergunta com base no contexto fornecido. Sua resposta deve ser clara, concisa e diretamente relacionada à pergunta. Use apenas as informações presentes no contexto. Se o contexto não fornecer informações suficientes para responder com confiança, indique que a informação é insuficiente e não especule.
 
 Contexto: {context}
 
