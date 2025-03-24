@@ -17,37 +17,41 @@ public class ProprocessTextService
             throw new ArgumentException("O texto não pode ser vazio.");
 
         List<(string Text, float[] Embedding)> chunksWithEmbeddings = new();
+        HashSet<string> seenChunks = new HashSet<string>(); // Para evitar duplicatas
 
         // Normaliza o texto: substitui quebras de linha e múltiplos espaços por um espaço
         text = Regex.Replace(text, @"\s+", " ").Trim();
 
-        // Corrige hífens perdidos apenas em casos específicos (ex.: "liga-la" -> "ligá-la")
+        // Corrige hífens perdidos
         text = Regex.Replace(text, @"(\w)-(\w)", "$1-$2");
 
-        // Divide em parágrafos ou seções numeradas (ex.: "01.", "a.")
-        var sections = Regex.Split(text, @"(?<=[\d]+\.\s+|(?:[a-z]\.\s+))")
+        // Divide em sentenças ou seções usando ponto final ou marcadores
+        var sections = Regex.Split(text, @"(?<=[.!?])\s+|\s*•\s*")
                            .Where(s => !string.IsNullOrWhiteSpace(s))
+                           .Select(s => s.Trim())
                            .ToList();
 
         string currentChunk = "";
 
         foreach (var section in sections)
         {
-            string sectionTrimmed = section.Trim();
-            if ((currentChunk.Length + sectionTrimmed.Length) <= maxChunkSize && !string.IsNullOrWhiteSpace(currentChunk))
+            if ((currentChunk.Length + section.Length) <= maxChunkSize && !string.IsNullOrWhiteSpace(currentChunk))
             {
-                currentChunk += " " + sectionTrimmed;
+                currentChunk += " " + section;
             }
             else
             {
                 if (!string.IsNullOrWhiteSpace(currentChunk))
                 {
                     string labeledChunk = label != null ? $"{currentChunk.Trim()} [Label: {label}]" : currentChunk.Trim();
-                    float[] embedding = await _embeddingService.GenerateEmbeddingAsync(labeledChunk);
-                    chunksWithEmbeddings.Add((labeledChunk, embedding));
-                    Console.WriteLine($"Chunk gerado: {labeledChunk}");
+                    if (seenChunks.Add(labeledChunk)) // Só adiciona se for único
+                    {
+                        float[] embedding = await _embeddingService.GenerateEmbeddingAsync(labeledChunk);
+                        chunksWithEmbeddings.Add((labeledChunk, embedding));
+                        Console.WriteLine($"Chunk gerado: {labeledChunk}");
+                    }
                 }
-                currentChunk = sectionTrimmed;
+                currentChunk = section;
             }
         }
 
@@ -55,9 +59,12 @@ public class ProprocessTextService
         if (!string.IsNullOrWhiteSpace(currentChunk))
         {
             string labeledChunk = label != null ? $"{currentChunk.Trim()} [Label: {label}]" : currentChunk.Trim();
-            float[] embedding = await _embeddingService.GenerateEmbeddingAsync(labeledChunk);
-            chunksWithEmbeddings.Add((labeledChunk, embedding));
-            Console.WriteLine($"Chunk gerado: {labeledChunk}");
+            if (seenChunks.Add(labeledChunk)) // Só adiciona se for único
+            {
+                float[] embedding = await _embeddingService.GenerateEmbeddingAsync(labeledChunk);
+                chunksWithEmbeddings.Add((labeledChunk, embedding));
+                Console.WriteLine($"Chunk gerado: {labeledChunk}");
+            }
         }
 
         return chunksWithEmbeddings;
