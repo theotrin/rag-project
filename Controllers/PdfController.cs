@@ -77,27 +77,28 @@ public class PdfController : Controller
         }
     }
 
-    [HttpPost("ask-question")]
-    public IActionResult AskQuestion([FromBody] AskQuestionRequest request)
+   // Controllers/PdfController.cs
+[HttpPost("ask-question")]
+public async Task<IActionResult> AskQuestion([FromBody] AskQuestionRequest request)
+{
+    try
     {
-        try
+        var answer = await _questionProcessingService.ProcessQuestionAsync(request.Question, request.ProductLabel);
+        return Ok(new
         {
-            var response = _questionProcessingService.ProcessQuestionAsync(request.Question, request.ProductLabel);
-            return Ok(new
-            {
-                message = "Pergunta processada com sucesso!",
-                question = request.Question,
-                productLabel = request.ProductLabel,
-                response
-            });
-        }
-        catch (ArgumentException ex)
-        {
-            return BadRequest(ex.Message);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = "Erro ao processar a pergunta", details = ex.Message });
-        }
+            message = "Pergunta processada com sucesso!",
+            question = request.Question,
+            productLabel = request.ProductLabel,
+            answer
+        });
     }
+    catch (ArgumentException ex)
+    {
+        return BadRequest(ex.Message);
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, new { error = "Erro ao processar a pergunta", details = ex.Message });
+    }
+}
 }
