@@ -109,7 +109,7 @@
           }
 
           const data = await response.json();
-          resultDiv.innerText = `${data.message}\nResposta: ${data.response}`;
+          resultDiv.innerText = `${data.message}\nResposta: ${data.response.result}`;
         } catch (error) {
           resultDiv.innerText = `Erro: ${error.message}`;
           console.error("Detalhes do erro:", error);
